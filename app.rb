@@ -4,12 +4,13 @@ get '/' do
   'hello!'
 end
 
-get '/secret' do
-  'bye felicia'
+get '/named-cat' do
+  @name = params[:name]
+  erb(:index)
 end
 
-get'/cat' do
-  "<div style='border: 3px dashed red'>
-  <img src='http://bit.ly/1eze8aE'>
-  </div>"
+
+get'/random-cat' do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
 end
